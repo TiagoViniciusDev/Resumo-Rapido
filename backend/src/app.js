@@ -1,7 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import connectDB from './config/db.js'
-import ResumeWithIARouter from './routers/ResumeWithIA.routes.js'
+import SummaryWithIARouter from './routers/SummaryWithIA.routes.js'
 
 const app = express()
 
@@ -24,6 +24,6 @@ app.get('/', (req, res) => {
     res.status(200).json("SERVIDOR OK")
 })
 
-app.use('/resume', ResumeWithIARouter)
+app.use('/resume', SummaryWithIARouter)
 
 export default app
