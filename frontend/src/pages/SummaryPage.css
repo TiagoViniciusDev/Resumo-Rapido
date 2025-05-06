@@ -1,0 +1,58 @@
+.SummaryPage{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.SummaryPage .main{
+    margin: 2em auto;
+    height: 100%;
+}
+
+.SummaryPage .main .content{
+    display: flex;
+    gap: 2em;
+}
+
+.SummaryPage .main > a{
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 0.2em;
+    text-decoration: none;
+    color: black;
+}
+
+.SummaryPage .main .content .results{
+    display: flex;
+    gap: 1em;
+    margin: 1em 0;
+}
+
+.SummaryPage .main .content .results .option{
+    width: fit-content;
+    padding: 0.5em 1em;
+    background-color: aqua;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+.SummaryPage .main .content .leftSide{
+    width: 60%;
+}
+
+.SummaryPage .main .content .leftSide .summaryText{
+    /* background-color: red; */
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-bottom: 2em;
+
+    scrollbar-width: thin;            /* opção: auto | thin | none */
+    scrollbar-color: gray transparent;    /* thumb track */
+}
+
+.SummaryPage .main .content iframe{
+    width: 40%;
+    height: min-content;
+    aspect-ratio: 95/53;
+}
