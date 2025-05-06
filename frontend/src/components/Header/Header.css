@@ -1,0 +1,7 @@
+.Header{
+    border-bottom: 1px solid gray;
+}
+
+.Header .container{
+    margin: 1.5em auto;
+}

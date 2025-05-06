@@ -1,0 +1,53 @@
+.Main{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 4em auto;
+}
+
+.Main .mainContainer{
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Main .mainContainer h2{
+    font-size: 4em;
+    font-weight: 500;
+}
+
+.Main .mainContainer form > div{
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    border: 1px solid gray;
+    border-radius: 0.4em;
+    margin: 1em auto;
+    padding: 0 1em;
+}
+
+.Main .mainContainer form > div svg{
+    color: gray;
+    font-size: 0.8em;
+}
+
+.Main .mainContainer form > div input{
+    height: 4em;
+    min-width: 50vw;
+    border: none;
+    outline: none;
+}
+
+.Main .mainContainer form button{
+    display: block;
+    padding: 1em 6em;
+    margin: 1em auto;
+    margin: 0 auto;
+    font-weight: 600;
+    border-radius: 0.4em;
+    border: none;
+    background-color: #79797D;
+    color: white;
+}
