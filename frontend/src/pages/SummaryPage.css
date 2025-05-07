@@ -41,7 +41,7 @@
     width: 60%;
 }
 
-.SummaryPage .main .content .leftSide .summaryText{
+.SummaryPage .main .content .leftSide .text{
     /* background-color: red; */
     max-height: 60vh;
     overflow-y: auto;
@@ -49,6 +49,31 @@
 
     scrollbar-width: thin;            /* opção: auto | thin | none */
     scrollbar-color: gray transparent;    /* thumb track */
+}
+
+.SummaryPage .main .content .leftSide .transcript{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    background-color: var(--color2);
+    padding: 1em 1.5em;
+    border-radius: 0.5em;
+}
+
+.SummaryPage .main .content .leftSide .transcript .transcriptPart{
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+.SummaryPage .main .content .leftSide .transcript .transcriptPart p{
+    font-size: 0.9em;
+}
+
+.SummaryPage .main .content .leftSide .transcript .transcriptPart p:first-of-type{
+    padding: 0.2em 0.4em;
+    background-color: var(--mainColor);
+    border-radius: 0.5em;
 }
 
 .SummaryPage .main .content iframe{
