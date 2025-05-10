@@ -7,7 +7,6 @@ import { IoIosArrowBack } from "react-icons/io";
 
 import { useState } from 'react';
 
-
 function SummaryPage() {
 
   const [showSummaryText, setShowSummaryText] = useState(true)

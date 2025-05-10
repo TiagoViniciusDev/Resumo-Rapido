@@ -32,9 +32,10 @@
 .SummaryPage .main .content .results .option{
     width: fit-content;
     padding: 0.5em 1em;
-    background-color: aqua;
+    background-color: var(--mainColor);
     border-radius: 0.5em;
     cursor: pointer;
+    color: white;
 }
 
 .SummaryPage .main .content .leftSide{
@@ -48,13 +49,13 @@
     padding-bottom: 2em;
 
     scrollbar-width: thin;            /* opção: auto | thin | none */
-    scrollbar-color: gray transparent;    /* thumb track */
+    scrollbar-color: gray transparent;    
 }
 
 .SummaryPage .main .content .leftSide .transcript{
     display: flex;
     flex-direction: column;
-    gap: 0.5em;
+    gap: 1em;
     background-color: var(--color2);
     padding: 1em 1.5em;
     border-radius: 0.5em;
@@ -74,6 +75,7 @@
     padding: 0.2em 0.4em;
     background-color: var(--mainColor);
     border-radius: 0.5em;
+    color: white;
 }
 
 .SummaryPage .main .content iframe{
