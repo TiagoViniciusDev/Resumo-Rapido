@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+
 .SummaryPage{
     height: 100vh;
     display: flex;
@@ -76,6 +78,7 @@
     background-color: var(--mainColor);
     border-radius: 0.5em;
     color: white;
+    font-family: "Questrial", sans-serif;
 }
 
 .SummaryPage .main .content iframe{
