@@ -11,15 +11,15 @@ function Main() {
 
   const navigate = useNavigate()
 
-  const {transcriptionText, setTranscriptionText, loading, setLoading, videoSummary, setVideoSummary} = useContext(SummaryContext)
+  const {transcriptionText, setTranscriptionText, loading, setLoading, videoSummary, setVideoSummary, setUrl} = useContext(SummaryContext)
 
-  const [url, setUrl] = useState()
-  const [validURL, setValidURL] = useState(true)
+  const [InputUrl, setInputUrl] = useState()
+  const [validURL, setValidURL] = useState(false)
 
   // console.log(validURL)
 
   function inputValue(URL){
-    setUrl(URL)
+    setInputUrl(URL)
     checkURL(URL)
   }
 
@@ -33,6 +33,11 @@ function Main() {
 
   function handleSubmit(e){
     e.preventDefault()
+
+    if(validURL == false){
+      return alert("Insira uma url válida")
+    }
+
     getVideoTranscription()
   }
 
@@ -40,8 +45,9 @@ function Main() {
     setLoading(true)
     try {
 
-      // const requestBody = {url: url}
-      const requestBody = {url: "https://youtu.be/dsxmE2GI4vs?si=F_HPppA2kP9XKVpb"}
+      setUrl(InputUrl)
+      const requestBody = {url: InputUrl}
+      // const requestBody = {url: "https://youtu.be/dsxmE2GI4vs?si=F_HPppA2kP9XKVpb"}
       
 
       const responseJSON = await ApiFetch('POST', 'resume/url', requestBody)

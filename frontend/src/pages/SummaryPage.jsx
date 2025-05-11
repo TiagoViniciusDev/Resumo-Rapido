@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 
 import './SummaryPage.css'
 import Header from '../components/Header/Header'
-// import ApiFetch from '../api/api';
 
 import { IoIosArrowBack } from "react-icons/io";
 
@@ -14,8 +13,9 @@ import remarkGfm from 'remark-gfm';
 
 function SummaryPage() {
 
-  const {transcriptionText, loading, setLoading, videoSummary} = useContext(SummaryContext)
+  const {transcriptionText, loading, setLoading, videoSummary, url} = useContext(SummaryContext)
 
+  console.log(url)
   // console.log(transcriptionText)
 
   const [showSummaryText, setShowSummaryText] = useState(true)
@@ -53,14 +53,6 @@ function SummaryPage() {
             </div>
 
             <div className='text summaryText' style={ showSummaryText ? {} : {display: 'none'}}>
-              {/* {transcriptionText ? <p>{transcriptionText.text}</p> : <p>Não foi possivel fazer o resumo do video</p>} */}
-              {/* {videoSummary ? videoSummary.map((part) => (
-                // <p key={Math.random(1000)}>{part.text}</p>
-                      <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                        {part.text}
-                      </ReactMarkdown>
-              )) : <p>Não foi possivel resumir o video</p>} */}
-
                 <div className="markdown-body">
                   <ReactMarkdown remarkPlugins={[remarkGfm]}>
                     {videoSummary ? 
@@ -69,7 +61,7 @@ function SummaryPage() {
                   </ReactMarkdown>
                 </div>
 
-              {console.log(videoSummary[0].text)}
+              {/* {console.log(videoSummary[0].text)} */}
             </div>
 
             <div className='text transcript' style={ showTranscript ? {} : {display: 'none'}}>
