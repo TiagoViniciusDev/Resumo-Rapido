@@ -9,6 +9,9 @@ import { IoIosArrowBack } from "react-icons/io";
 import { useState, useContext } from 'react';
 import { SummaryContext } from '../context/summaryContext';
 
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+
 function SummaryPage() {
 
   const {transcriptionText, loading, setLoading, videoSummary} = useContext(SummaryContext)
@@ -51,9 +54,22 @@ function SummaryPage() {
 
             <div className='text summaryText' style={ showSummaryText ? {} : {display: 'none'}}>
               {/* {transcriptionText ? <p>{transcriptionText.text}</p> : <p>Não foi possivel fazer o resumo do video</p>} */}
-              {videoSummary ? videoSummary.map((part) => (
-                <p key={Math.random(1000)}>{part.text}</p>
-              )) : <p>Não foi possivel resumir o video</p>}
+              {/* {videoSummary ? videoSummary.map((part) => (
+                // <p key={Math.random(1000)}>{part.text}</p>
+                      <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                        {part.text}
+                      </ReactMarkdown>
+              )) : <p>Não foi possivel resumir o video</p>} */}
+
+                <div className="markdown-body">
+                  <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                    {videoSummary ? 
+                      videoSummary[0].text
+                    : "Não foi possivel resumir o video"}
+                  </ReactMarkdown>
+                </div>
+
+              {console.log(videoSummary[0].text)}
             </div>
 
             <div className='text transcript' style={ showTranscript ? {} : {display: 'none'}}>

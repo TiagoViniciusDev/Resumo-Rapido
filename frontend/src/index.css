@@ -21,3 +21,16 @@ body{
   margin: 0 auto;
   max-width: 1400px;
 }
+
+
+.markdown-body p {
+  margin: 0 0 1em; /* 1em abaixo de cada parágrafo */
+}
+.markdown-body li + li {
+  margin-top: 0.5em; /* 0.5em entre itens da lista */
+}
+.markdown-body ol,
+.markdown-body ul {
+  margin: 1em 0;
+  padding-left: 1.25em;
+}
