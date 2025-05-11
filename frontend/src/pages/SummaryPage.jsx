@@ -2,12 +2,18 @@ import { Link } from 'react-router-dom'
 
 import './SummaryPage.css'
 import Header from '../components/Header/Header'
+// import ApiFetch from '../api/api';
 
 import { IoIosArrowBack } from "react-icons/io";
 
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { SummaryContext } from '../context/summaryContext';
 
 function SummaryPage() {
+
+  const {transcriptionText, loading, setLoading, videoSummary} = useContext(SummaryContext)
+
+  // console.log(transcriptionText)
 
   const [showSummaryText, setShowSummaryText] = useState(true)
   const [showTranscript, setShowTranscript] = useState(false)
@@ -22,21 +28,6 @@ function SummaryPage() {
   
     return `${mm}:${ss}`;
   }
-
-  const responseExample = [
-		{
-			"text": "você tá achando que a gente não ia fazer",
-			"duration": 6.44,
-			"offset": 0,
-			"lang": "pt"
-		},
-		{
-			"text": "um choque de cultura achou errado otário",
-			"duration": 4.731,
-			"offset": 1.709,
-			"lang": "pt"
-		}
-	]
 
   return (
     <div className='SummaryPage'>
@@ -59,16 +50,20 @@ function SummaryPage() {
             </div>
 
             <div className='text summaryText' style={ showSummaryText ? {} : {display: 'none'}}>
-              <p>Summary Text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+              {/* {transcriptionText ? <p>{transcriptionText.text}</p> : <p>Não foi possivel fazer o resumo do video</p>} */}
+              {videoSummary ? videoSummary.map((part) => (
+                <p key={Math.random(1000)}>{part.text}</p>
+              )) : <p>Não foi possivel resumir o video</p>}
             </div>
 
             <div className='text transcript' style={ showTranscript ? {} : {display: 'none'}}>
-              {responseExample.map((partOfTranscript) => (
-                <div className='transcriptPart'>
+
+              {transcriptionText ? transcriptionText.transcript.map((partOfTranscript) => (
+                <div className='transcriptPart' key={partOfTranscript.offset}>
                   <p>{formatTime(partOfTranscript.offset)}</p>
                   <p>{partOfTranscript.text}</p>
                 </div>
-              ))}
+              )) : <p>Não foi possivel extrair a transcrição do video</p>}
             </div>
 
           </div>
