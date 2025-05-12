@@ -15,7 +15,7 @@ function SummaryPage() {
 
   const {transcriptionText, loading, setLoading, videoSummary, url} = useContext(SummaryContext)
 
-  console.log(url)
+  // console.log(url)
   // console.log(transcriptionText)
 
   const [showSummaryText, setShowSummaryText] = useState(true)
