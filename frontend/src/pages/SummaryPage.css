@@ -86,3 +86,25 @@
     height: min-content;
     aspect-ratio: 95/53;
 }
+
+@media screen and (max-width: 768px){
+    .SummaryPage .main .content{
+        flex-direction: column-reverse;
+        gap: 0;
+    }
+
+    .SummaryPage .main .content .leftSide{
+        width: 100%;
+        padding-bottom: 4em;
+    }
+
+    .SummaryPage .main .content .leftSide .text{
+        overflow-y: visible;
+        max-height: none;
+    }
+
+    .SummaryPage .main .content iframe{
+        width: 100%;
+        margin-top: 1.5em;
+    }
+}

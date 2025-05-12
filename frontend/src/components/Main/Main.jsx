@@ -101,7 +101,7 @@ function Main() {
   }
 
   return (
-    <main className='Main'>
+    <main className='Main container'>
         <div className='mainContainer'>
             <h2>Resumos com IA</h2>
             <p>Resuma vídeos do YouTube em segundos</p>

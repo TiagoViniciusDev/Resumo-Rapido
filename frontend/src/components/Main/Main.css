@@ -1,5 +1,4 @@
 .Main{
-    width: 100%;
     display: flex;
     justify-content: center;
     margin: 4em auto;
@@ -16,6 +15,11 @@
 .Main .mainContainer h2{
     font-size: 4em;
     font-weight: 500;
+    text-align: center;
+}
+
+.Main .mainContainer form{
+    width: 100%;
 }
 
 .Main .mainContainer form > div{
@@ -26,6 +30,7 @@
     border-radius: 0.4em;
     margin: 1em auto;
     padding: 0 1em;
+    width: 100%;
 }
 
 .Main .mainContainer form > div svg{
@@ -35,7 +40,7 @@
 
 .Main .mainContainer form > div input{
     height: 4em;
-    min-width: 50vw;
+    width: 100%;
     border: none;
     outline: none;
 }
@@ -50,4 +55,10 @@
     border: none;
     background-color: #79797D;
     color: white;
+}
+
+@media screen and (max-width: 768px){
+    .Main .mainContainer h2{
+        font-size: 3em;
+    }
 }
