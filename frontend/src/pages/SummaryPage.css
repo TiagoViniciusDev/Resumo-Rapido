@@ -45,7 +45,6 @@
 }
 
 .SummaryPage .main .content .leftSide .text{
-    /* background-color: red; */
     max-height: 60vh;
     overflow-y: auto;
     padding-bottom: 2em;

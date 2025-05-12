@@ -5,18 +5,16 @@ import { FaLink } from "react-icons/fa";
 
 import { useState, useContext } from 'react';
 import { SummaryContext } from '../../context/summaryContext';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Main() {
 
   const navigate = useNavigate()
 
-  const {transcriptionText, setTranscriptionText, loading, setLoading, videoSummary, setVideoSummary, setUrl} = useContext(SummaryContext)
+  const {setTranscriptionText, loading, setLoading, setVideoSummary, setUrl} = useContext(SummaryContext)
 
   const [InputUrl, setInputUrl] = useState()
   const [validURL, setValidURL] = useState(false)
-
-  // console.log(validURL)
 
   function inputValue(URL){
     setInputUrl(URL)
@@ -47,12 +45,8 @@ function Main() {
 
       setUrl(InputUrl)
       const requestBody = {url: InputUrl}
-      // const requestBody = {url: "https://youtu.be/dsxmE2GI4vs?si=F_HPppA2kP9XKVpb"}
-      
 
       const responseJSON = await ApiFetch('POST', 'resume/url', requestBody)
-
-      console.log(responseJSON)
 
       if(responseJSON.success == false){
         setLoading(false)
@@ -69,9 +63,7 @@ function Main() {
       console.log(response)
       setTranscriptionText(response)
       const IAResult = await getVideoSummary(response.text)
-      console.log(IAResult)
       setVideoSummary(IAResult.response.candidates[0].content.parts)
-      console.log(IAResult.response.candidates[0].content.parts)
       navigate("/resumo")
 
     } catch (error) {

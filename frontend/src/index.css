@@ -8,7 +8,6 @@
 }
 
 :root{
-  /* --mainColor: #3B82F6; */
   --mainColor: #60A5FA;
   --color2: #E9ECEE;
 }
@@ -23,7 +22,7 @@ body{
   max-width: 1400px;
 }
 
-
+/* Formatação do texto md da biblioteca "react-markdown" */
 .markdown-body p {
   margin: 0 0 1em; /* 1em abaixo de cada parágrafo */
 }
