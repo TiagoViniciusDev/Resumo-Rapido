@@ -20,7 +20,7 @@ export const Transcript = async (req, res) => {
 
     } catch (error) {
         console.log(error)
-        return res.status(404).json({success: false, msg: "erro, verifique a url e tente novamente", error})
+        return res.status(400).json({success: false, msg: "URL, não compativel, verifique a url. Verifique também se a transcrição do video está ativada e que não seja conteúdo de uma live"})
 
         //ERRO DA URL NÂO ENCONTRADA
         //ERRO DA TRANSCRIÇÃO ESTÁ DESATIVADA NO VIDEO

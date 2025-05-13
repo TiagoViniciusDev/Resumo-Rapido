@@ -75,7 +75,7 @@ function Main() {
 
   async function getVideoSummary(text){
     try {
-      const requestBody = {text: `Aqui está a transcrição de um video no youtube, faça o resumo desse video: ${text}`}
+      const requestBody = {text: `Aqui está a transcrição de um video no youtube, faça o resumo detalhado desse video: ${text}`}
       const responseJSON = await ApiFetch('POST', 'resume/summarizeText', requestBody)
 
       if(responseJSON.success == false){
@@ -100,7 +100,7 @@ function Main() {
             <form onSubmit={handleSubmit}>
                 <div>
                     <FaLink />
-                    <input type="text" placeholder='Cole a url do vídeo do Youtube aqui' /*required*/ onChange={(e) => {inputValue(e.target.value)}}/>
+                    <input type="text" placeholder='Cole a url do vídeo do Youtube aqui' required onChange={(e) => {inputValue(e.target.value)}}/>
                 </div>
                 <button type='submit' style={validURL ? {backgroundColor: "var(--mainColor)"} : {}}>{loading ? "Resumindo..." : "Resumir"}</button>
             </form>
