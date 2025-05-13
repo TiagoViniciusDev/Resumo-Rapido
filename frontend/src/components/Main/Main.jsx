@@ -60,7 +60,10 @@ function Main() {
         return alert(response.msg)
       }
 
-      console.log(response)
+      if(!response.text){
+        return alert("Não foi possivel extrair a transcrição do video, tente novamente")
+      }
+
       setTranscriptionText(response)
       const IAResult = await getVideoSummary(response.text)
       setVideoSummary(IAResult.response.candidates[0].content.parts)
