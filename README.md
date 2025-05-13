@@ -3,9 +3,9 @@ O projeto gera resumos de videos no youtube usando Inteligencia Artificial. Atra
 #### HOME
 ![home](Images/Home.png)
 
-![home](Images/Resumo.png)
+![resumo gerado por IA](Images/Resumo.png)
 
-![home](Images/Transcricao.png)
+![transcrição do video](Images/Transcricao.png)
 
 ### Inicializando projeto
 
